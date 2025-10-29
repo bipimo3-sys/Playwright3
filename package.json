@@ -16,12 +16,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.56.0",
-    "@types/node": "^24.7.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.9.2",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.1",
     "dotenv": "^17.2.3",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "express": "^5.1.0",

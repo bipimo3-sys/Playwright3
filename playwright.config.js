@@ -14,7 +14,7 @@ import { defineConfig, devices } from "@playwright/test";
  *
  */
 export default defineConfig({
-  testDir: "./ProjectTestsuite2",
+  testDir: "./ProjectTestsuite3",
   projects: [
     // Authentication setup (runs first)
     {
@@ -22,12 +22,12 @@ export default defineConfig({
       testMatch: /.*auth\.setup\.js/,
     },
     {
-      name: "TS2 - POM and customFixtures",
-      testDir: "./ProjectTestsuite2",
+      name: "TS3 - Typescript",
+      testDir: "./ProjectTestsuite3",
       dependencies: ["setup"], // ensures setup runs first
       use: {
         ...devices["Desktop Chrome"],
-        storageState: "ProjectTestsuite2/storageState.json",
+        storageState: "ProjectTestsuite3/storageState.json",
       },
     },
   ],

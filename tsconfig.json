@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    // Input / Output
+    "rootDir": "./",
+    "outDir": "./dist",
+
+    // Module system
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "verbatimModuleSyntax": true,
+
+    // Typing
+    "types": ["@playwright/test", "node"],
+
+    // Debugging
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Safety
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "ProjectTestsuite3",
+    "pages",
+    "fixtures",
+    "utils"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "ProjectTSApp",
+    "ProjectTestsuite2"
+  ]
+}
