@@ -1,0 +1,30 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gitpush": "git add . && git commit -m \"committed\" && git push origin main",
+    "postinstall": "npx playwright install",
+    "start-server": "node server.js",
+    "al-g": "allure generate allure-results --clean -o allure-report",
+    "al-o": "allure open allure-report",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.1",
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  }
+}
