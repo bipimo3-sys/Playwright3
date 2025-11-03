@@ -9,7 +9,12 @@ export class APIUserService {
     this.baseURL = "http://localhost:3000/api/users";
   }
 
-  
+  async createUserWithoutName() {
+    return await this.request.post(this.baseURL, {
+      data: {},
+    });
+  }
+
   async getAllUsers(): Promise<APIResponse> {
     return this.request.get(this.baseURL);
   }

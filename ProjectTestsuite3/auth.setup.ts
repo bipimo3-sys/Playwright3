@@ -1,6 +1,7 @@
 // ProjectTestsuite3/auth.setup.ts
 
-import { test as setup, expect, Page } from "@playwright/test";
+import { test as setup, expect } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 setup(
   "authenticate and save storage state",

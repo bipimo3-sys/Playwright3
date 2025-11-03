@@ -3,17 +3,9 @@
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
 
-import { test } from "../fixtures/customFixtures";
-import {
-  chromium,
-  firefox,
-  webkit,
-  devices,
-  BrowserType,
-  BrowserContext,
-  Page,
-  TestInfo,
-} from "@playwright/test";
+import { test } from "../fixtures/customFixtures.js";
+import { chromium, firefox, webkit, devices } from "@playwright/test";
+import type { TestInfo } from "@playwright/test";
 
 interface CustomDevice {
   name: string;
@@ -47,11 +39,17 @@ test.describe.parallel("HTML Playground Iframe Tests", () => {
       }, testInfo: TestInfo) => {
         const browser = await browserType.launch();
 
-        const context = device.device
+        /*const context = device.device
           ? await browser.newContext(device.device)
           : await browser.newContext({
               viewport: device.viewport,
               userAgent: device.userAgent,
+            });*/
+        const context = device.device
+          ? await browser.newContext(device.device)
+          : await browser.newContext({
+              ...(device.viewport ? { viewport: device.viewport } : {}),
+              ...(device.userAgent ? { userAgent: device.userAgent } : {}),
             });
 
         const page = await context.newPage();

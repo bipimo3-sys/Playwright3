@@ -15,8 +15,26 @@ export class AddToListPage {
     this.message = page.locator("#message");
   }
 
+  get input() {
+    return this.inputField;
+  }
+
+  get button() {
+    return this.addButton;
+  }
+
+  get items() {
+    return this.listItems;
+  }
+
+  get alertMessage() {
+    return this.message;
+  }
+
   async goto(): Promise<void> {
-    await this.page.goto("http://localhost:3000/ProjectTSApp/TS1_AddToList.html");
+    await this.page.goto(
+      "http://localhost:3000/ProjectTSApp/TS1_AddToList.html"
+    );
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -41,7 +59,6 @@ export class AddToListPage {
     return this.message.textContent();
   }
 
-  
   async screenshot(name: string): Promise<Buffer> {
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
     return this.page.screenshot({

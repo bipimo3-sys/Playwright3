@@ -1,7 +1,11 @@
-import { test } from "../fixtures/customFixtures.js";
+import { test, expect } from "../fixtures/customFixtures.js";
+import type { TestInfo, Page } from "@playwright/test";
 
 test.describe("Iframe2 API Mock Test (POM + Fixture)", () => {
-  test("should load mock API data and populate iframe", async ({ htmlPlaygroundAPIMockPage, page }, testInfo) => {
+  test("should load mock API data and populate iframe", async ({
+    htmlPlaygroundAPIMockPage,
+    page,
+  }: { htmlPlaygroundAPIMockPage: any; page: Page }, testInfo: TestInfo) => {
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
 
     // Navigate
@@ -15,7 +19,7 @@ test.describe("Iframe2 API Mock Test (POM + Fixture)", () => {
       fullPage: true,
     });
 
-    // Intercept API
+    // Intercept API mock
     await htmlPlaygroundAPIMockPage.interceptUsersAPI({
       users: [
         { id: 101, name: "Test User 1" },
@@ -26,7 +30,7 @@ test.describe("Iframe2 API Mock Test (POM + Fixture)", () => {
     // Reload page
     await htmlPlaygroundAPIMockPage.goto();
 
-    // Click button and verify iframe
+    // Click button and verify iframe content
     await htmlPlaygroundAPIMockPage.clickPopulate();
     await htmlPlaygroundAPIMockPage.expectIframeContainsText("Test User");
 
@@ -35,7 +39,7 @@ test.describe("Iframe2 API Mock Test (POM + Fixture)", () => {
       fullPage: true,
     });
 
-    // Attach for CI
+    // Attach artifact for CI
     await testInfo.attach("iframe-populated", {
       body: await page.screenshot({ fullPage: true }),
       contentType: "image/png",

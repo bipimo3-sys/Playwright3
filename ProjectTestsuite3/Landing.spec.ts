@@ -3,7 +3,7 @@
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
 
-import { test } from "../fixtures/customFixtures";
+import { test } from "../fixtures/customFixtures.js";
 
 test.describe.parallel("Landing Page Tests (POM + Fixture)", () => {
   test("landing-page-1VerifyPageTitle", async ({ landingPage }) => {

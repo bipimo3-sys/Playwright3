@@ -3,8 +3,7 @@
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
 
-import { test, expect } from "../fixtures/customFixtures";
-import { Page } from "@playwright/test";
+import { test, expect } from "../fixtures/customFixtures.js";
 
 test.describe.parallel("Login Page Tests (POM + Fixture)", () => {
   test("login-page-1load", async ({ loginPage }) => {
