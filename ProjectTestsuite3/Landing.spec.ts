@@ -1,6 +1,9 @@
+// ProjectTestsuite3/landing.spec.ts
+
 import dotenv from "dotenv";
 dotenv.config({ quiet: true });
-import { test } from "../fixtures/customFixtures.js";
+
+import { test } from "../fixtures/customFixtures";
 
 test.describe.parallel("Landing Page Tests (POM + Fixture)", () => {
   test("landing-page-1VerifyPageTitle", async ({ landingPage }) => {
@@ -13,17 +16,23 @@ test.describe.parallel("Landing Page Tests (POM + Fixture)", () => {
     await landingPage.verifyHeaderContent();
   });
 
-  test("landing-page-3VerifyProfileSectionVisibilityAndContent", async ({ landingPage }) => {
+  test("landing-page-3VerifyProfileSectionVisibilityAndContent", async ({
+    landingPage,
+  }) => {
     await landingPage.goto();
     await landingPage.verifyProfileSection();
   });
 
-  test("landing-page-4VerifySkillsSectionContainsListItems", async ({ landingPage }) => {
+  test("landing-page-4VerifySkillsSectionContainsListItems", async ({
+    landingPage,
+  }) => {
     await landingPage.goto();
     await landingPage.verifySkillsSection();
   });
 
-  test("landing-page-5VerifyHiddenSectionsExperienceAndEducation", async ({ landingPage }) => {
+  test("landing-page-5VerifyHiddenSectionsExperienceAndEducation", async ({
+    landingPage,
+  }) => {
     await landingPage.goto();
     await landingPage.verifyHiddenSections();
   });
@@ -43,12 +52,16 @@ test.describe.parallel("Landing Page Tests (POM + Fixture)", () => {
     await landingPage.verifyExternalCSS();
   });
 
-  test("landing-page-9VerifyJavaScriptFileIncluded", async ({ landingPage }) => {
+  test("landing-page-9VerifyJavaScriptFileIncluded", async ({
+    landingPage,
+  }) => {
     await landingPage.goto();
     await landingPage.verifyJavaScriptIncluded();
   });
 
-  test("landing-page-10ValidateBasicLayoutStructure", async ({ landingPage }) => {
+  test("landing-page-10ValidateBasicLayoutStructure", async ({
+    landingPage,
+  }) => {
     await landingPage.goto();
     await landingPage.verifyLayoutStructure();
   });

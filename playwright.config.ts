@@ -19,11 +19,10 @@ export default defineConfig({
     // Authentication setup (runs first)
     {
       name: "setup",
-      testMatch: /.*auth\.setup\.js/,
+      testMatch: /.*auth\.setup\.ts/,
     },
     {
       name: "TS3 - Typescript",
-      testDir: "./ProjectTestsuite3",
       dependencies: ["setup"], // ensures setup runs first
       use: {
         ...devices["Desktop Chrome"],
