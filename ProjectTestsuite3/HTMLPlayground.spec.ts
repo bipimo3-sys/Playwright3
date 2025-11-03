@@ -34,9 +34,7 @@ test.describe.parallel("HTML Playground Iframe Tests", () => {
       // Skip Firefox mobile device tests (Firefox mobile emulation not supported)
       if (browserType.name() === "firefox" && device.device?.isMobile) continue;
 
-      test(`${device.name} test in ${browserType.name()}`, async ({
-        htmlPlaygroundPage,
-      }, testInfo: TestInfo) => {
+      test(`${device.name} test in ${browserType.name()}`, async ({ htmlPlaygroundPage }, testInfo: TestInfo) => {
         const browser = await browserType.launch();
 
         /*const context = device.device
@@ -55,18 +53,13 @@ test.describe.parallel("HTML Playground Iframe Tests", () => {
         const page = await context.newPage();
 
         const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-        console.log(
-          "device test started - ",
-          `${device.name} in ${browserType.name()} - ${timestamp}`
-        );
+        console.log("device test started - ", `${device.name} in ${browserType.name()} - ${timestamp}`);
 
         await htmlPlaygroundPage.goto();
 
         await htmlPlaygroundPage.verifyDefaultTextareaValue();
 
-        await htmlPlaygroundPage.fillTextarea(
-          "<p><b><i>Hello world!</i></b></p>"
-        );
+        await htmlPlaygroundPage.fillTextarea("<p><b><i>Hello world!</i></b></p>");
         await htmlPlaygroundPage.clickRun();
         await htmlPlaygroundPage.verifyIframeContainsText("Hello world!");
 

@@ -1,9 +1,4 @@
-import {
-  expect,
-  type Page,
-  type Locator,
-  type FrameLocator,
-} from "@playwright/test";
+import { expect, type Page, type Locator, type FrameLocator } from "@playwright/test";
 
 export class HTMLPlaygroundPage {
   private readonly page: Page;

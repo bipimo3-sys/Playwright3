@@ -2,10 +2,7 @@ import { test, expect } from "../fixtures/customFixtures.js";
 import type { TestInfo, Page } from "@playwright/test";
 
 test.describe("Iframe2 API Mock Test (POM + Fixture)", () => {
-  test("should load mock API data and populate iframe", async ({
-    htmlPlaygroundAPIMockPage,
-    page,
-  }: { htmlPlaygroundAPIMockPage: any; page: Page }, testInfo: TestInfo) => {
+  test("should load mock API data and populate iframe", async ({ htmlPlaygroundAPIMockPage, page }: { htmlPlaygroundAPIMockPage: any; page: Page }, testInfo: TestInfo) => {
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
 
     // Navigate

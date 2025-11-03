@@ -1,10 +1,4 @@
-import {
-  expect,
-  type Page,
-  type Locator,
-  type FrameLocator,
-  type Route,
-} from "@playwright/test";
+import { expect, type Page, type Locator, type FrameLocator, type Route } from "@playwright/test";
 
 export class HTMLPlaygroundAPIMockPage {
   private readonly page: Page;
@@ -20,16 +14,11 @@ export class HTMLPlaygroundAPIMockPage {
   }
 
   async goto(): Promise<void> {
-    await this.page.goto(
-      "http://localhost:3000/ProjectTSApp/TS1_HTMLPlaygroundAPImock.html"
-    );
+    await this.page.goto("http://localhost:3000/ProjectTSApp/TS1_HTMLPlaygroundAPImock.html");
     await this.page.waitForLoadState("networkidle");
   }
 
-  async waitForTextareaValue(
-    expectedRegex: RegExp,
-    timeout = 10000
-  ): Promise<void> {
+  async waitForTextareaValue(expectedRegex: RegExp, timeout = 10000): Promise<void> {
     await expect(this.textarea).toHaveValue(expectedRegex, { timeout });
   }
 
@@ -51,5 +40,3 @@ export class HTMLPlaygroundAPIMockPage {
     });
   }
 }
-
-

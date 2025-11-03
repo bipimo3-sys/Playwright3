@@ -25,9 +25,7 @@
     </style>
   </head>
   <body>
-    <button id="logoutBtn" style="position: fixed; top: 10px; right: 10px">
-      Logout
-    </button>
+    <button id="logoutBtn" style="position: fixed; top: 10px; right: 10px">Logout</button>
     <h2>API Data Loader</h2>
     <textarea id="textareaCode" readonly>Loading data...</textarea><br />
     <button id="populateBtn">PopulateIframe</button>
@@ -44,9 +42,7 @@
           const response = await fetch("http://localhost:3000/api/users");
           const data = await response.json();
 
-          const htmlContent = `<ul>${data.users
-            .map((user) => `<li>${user.name}</li>`)
-            .join("")}</ul>`;
+          const htmlContent = `<ul>${data.users.map((user) => `<li>${user.name}</li>`).join("")}</ul>`;
 
           textarea.value = htmlContent;
         } catch (err) {
@@ -62,19 +58,17 @@
         doc.close();
       });
 
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", async () => {
-          try {
-            const res = await fetch("/api/logout", { method: "POST" });
-            const data = await res.json();
-            console.log(data.message);
-            // Redirect to login page after logout
-            window.location.href = "/ProjectTSApp/TS1_Login.html";
-          } catch (err) {
-            console.error("Logout error:", err);
-          }
-        });
+      document.getElementById("logoutBtn").addEventListener("click", async () => {
+        try {
+          const res = await fetch("/api/logout", { method: "POST" });
+          const data = await res.json();
+          console.log(data.message);
+          // Redirect to login page after logout
+          window.location.href = "/ProjectTSApp/TS1_Login.html";
+        } catch (err) {
+          console.error("Logout error:", err);
+        }
+      });
 
       // Load data on page load
       window.addEventListener("DOMContentLoaded", loadApiData);

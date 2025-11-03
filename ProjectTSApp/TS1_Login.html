@@ -80,71 +80,69 @@
     </div>
 
     <script>
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const user = document.getElementById("username").value.trim();
-          const pass = document.getElementById("password").value.trim();
-          const message = document.getElementById("message");
+      document.getElementById("loginForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value.trim();
+        const message = document.getElementById("message");
 
-          if (user === "" || pass === "") {
-            message.textContent = "Please enter both username and password.";
+        if (user === "" || pass === "") {
+          message.textContent = "Please enter both username and password.";
+          message.className = "error";
+          message.style.display = "block";
+          return;
+        }
+
+        try {
+          // 🔹 Attempt login via backend API first
+          const response = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username: user, password: pass }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.message === "Login successful") {
+            // Successful backend login
+            message.textContent = "Login successful!";
+            message.className = "";
+            message.style.display = "block";
+
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 500);
+            return;
+          } else {
+            message.textContent = "Invalid credentials.";
             message.className = "error";
             message.style.display = "block";
-            return;
+            throw new Error(data.error || "Invalid credentials.");
           }
-
-          try {
-            // 🔹 Attempt login via backend API first
-            const response = await fetch("/api/login", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ username: user, password: pass }),
-            });
-
-            const data = await response.json();
-
-            if (response.ok && data.message === "Login successful") {
-              // Successful backend login
-              message.textContent = "Login successful!";
-              message.className = "";
-              message.style.display = "block";
-
-              setTimeout(() => {
-                window.location.href = "index.html";
-              }, 500);
-              return;
-            } else {
-              message.textContent = "Invalid credentials.";
-              message.className = "error";
-              message.style.display = "block";
-              throw new Error(data.error || "Invalid credentials.");
-            }
-          } catch (err) {
-            // Fallback to local users (legacy support)
-            const users = {
-              /* admin: "password",
+        } catch (err) {
+          // Fallback to local users (legacy support)
+          const users = {
+            /* admin: "password",
                   Alice: "alice123",
                   Bob: "bob123",
                   Charlie: "charlie123",*/
-            };
+          };
 
-            if (user in users && pass === users[user]) {
-              message.textContent = "Login successful!";
-              message.className = "";
-              message.style.display = "block";
+          if (user in users && pass === users[user]) {
+            message.textContent = "Login successful!";
+            message.className = "";
+            message.style.display = "block";
 
-              setTimeout(() => {
-                window.location.href = "index.html";
-              }, 500);
-            } else {
-              message.textContent = "Invalid credentials.";
-              message.className = "error";
-              message.style.display = "block";
-            }
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 500);
+          } else {
+            message.textContent = "Invalid credentials.";
+            message.className = "error";
+            message.style.display = "block";
           }
-        });
+        }
+      });
     </script>
   </body>
 </html>

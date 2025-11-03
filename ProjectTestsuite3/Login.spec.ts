@@ -71,9 +71,7 @@ test.describe.parallel("Login Page Tests (POM + Fixture)", () => {
 
   test("login-page-8unameCaseSensitivity", async ({ loginPage }) => {
     await loginPage.goto();
-    await loginPage.enterUsername(
-      (process.env.TS1_USERNAME ?? "").toUpperCase()
-    );
+    await loginPage.enterUsername((process.env.TS1_USERNAME ?? "").toUpperCase());
     await loginPage.enterPassword(process.env.TS1_PASSWORD ?? "");
     await loginPage.clickLogin();
     await loginPage.expectMessage("Invalid credentials.");

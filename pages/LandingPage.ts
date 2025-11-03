@@ -39,23 +39,15 @@ export class LandingPage {
     this.profileSection = page.locator("section h2.collapsible", {
       hasText: "Profile",
     });
-    this.profileContent = page.locator(
-      "section:has(h2:has-text('Profile')) .collapsible-content"
-    );
+    this.profileContent = page.locator("section:has(h2:has-text('Profile')) .collapsible-content");
 
     this.skillsSection = page.locator("section h2.collapsible", {
       hasText: "Skills",
     });
-    this.skillsListItems = page.locator(
-      "section:has(h2:has-text('Skills')) ul li"
-    );
+    this.skillsListItems = page.locator("section:has(h2:has-text('Skills')) ul li");
 
-    this.experienceSection = page.locator(
-      "section:has(h2:has-text('Experience'))"
-    );
-    this.educationSection = page.locator(
-      "section:has(h2:has-text('Education'))"
-    );
+    this.experienceSection = page.locator("section:has(h2:has-text('Experience'))");
+    this.educationSection = page.locator("section:has(h2:has-text('Education'))");
 
     this.projectsSection = page.locator("section:has(h2:has-text('Projects'))");
     this.projectItems = page.locator("#tasklist li");
@@ -79,22 +71,15 @@ export class LandingPage {
   async verifyHeaderContent(): Promise<void> {
     await expect(this.headerName).toHaveText("Bipi");
 
-    const contactText = ((await this.headerContact.textContent()) ?? "")
-      .replace(/\s+/g, " ")
-      .trim();
-    const expected =
-      "Email: bipi@example.com | Phone: +91 1234567890 | Location: Kerala, India";
+    const contactText = ((await this.headerContact.textContent()) ?? "").replace(/\s+/g, " ").trim();
+    const expected = "Email: bipi@example.com | Phone: +91 1234567890 | Location: Kerala, India";
     expect(contactText).toBe(expected);
   }
 
   async verifyProfileSection(): Promise<void> {
     await expect(this.profileSection).toBeVisible();
-    const text = ((await this.profileContent.textContent()) ?? "")
-      .replace(/\s+/g, " ")
-      .trim();
-    expect(text).toContain(
-      "A IBM Domino/Lotus Notes developer with ~20 years of experience in full stack development."
-    );
+    const text = ((await this.profileContent.textContent()) ?? "").replace(/\s+/g, " ").trim();
+    expect(text).toContain("A IBM Domino/Lotus Notes developer with ~20 years of experience in full stack development.");
   }
 
   async verifySkillsSection(): Promise<void> {
@@ -102,16 +87,10 @@ export class LandingPage {
     const count = await this.skillsListItems.count();
     expect(count).toBe(3);
 
-    const expected = [
-      "IBM Domino/Notes",
-      "Lotus Formulae, Lotus Script, Xpages",
-      "HTML, CSS, JavaScript",
-    ];
+    const expected = ["IBM Domino/Notes", "Lotus Formulae, Lotus Script, Xpages", "HTML, CSS, JavaScript"];
 
     for (let i = 0; i < count; i++) {
-      const text = (
-        (await this.skillsListItems.nth(i).textContent()) ?? ""
-      ).trim();
+      const text = ((await this.skillsListItems.nth(i).textContent()) ?? "").trim();
       expect(text).toBe(expected[i]);
     }
   }
@@ -129,10 +108,7 @@ export class LandingPage {
     const count = await this.projectItems.count();
     expect(count).toBe(2);
 
-    const expected = [
-      "Domino App 1 - Business workflow app.",
-      "Domino App 2 - Business workflow app.",
-    ];
+    const expected = ["Domino App 1 - Business workflow app.", "Domino App 2 - Business workflow app."];
 
     for (let i = 0; i < count; i++) {
       const text = await this.projectItems.nth(i).innerText();

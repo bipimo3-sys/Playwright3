@@ -1,6 +1,5 @@
 import { test, expect } from "../fixtures/customFixtures.js";
 
-
 test.describe.parallel("AddToList Page Tests", () => {
   test("1 - Input field is available", async ({ addToListPage }) => {
     await addToListPage.goto();
@@ -57,10 +56,7 @@ test.describe.parallel("AddToList Page Tests", () => {
     await addToListPage.addItem("");
     await expect(addToListPage.alertMessage).toBeVisible();
     await addToListPage.addItem("1234324");
-    await expect(addToListPage.alertMessage).toHaveJSProperty(
-      "style.display",
-      "none"
-    );
+    await expect(addToListPage.alertMessage).toHaveJSProperty("style.display", "none");
     await expect(addToListPage.items.last()).toHaveText("1234324");
     await addToListPage.screenshot("messageHiddenAfterAdd");
   });
@@ -81,9 +77,7 @@ test.describe.parallel("AddToList Page Tests", () => {
     await addToListPage.goto();
     await addToListPage.addItem("dsagfafg");
 
-    const isFocused = await addToListPage.input.evaluate(
-      (el) => el === document.activeElement
-    );
+    const isFocused = await addToListPage.input.evaluate((el) => el === document.activeElement);
     expect(isFocused).toBe(true);
 
     await addToListPage.screenshot("focusReturnsToInput");

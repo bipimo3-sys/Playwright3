@@ -25,16 +25,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": [
-    "ProjectTestsuite3",
-    "pages",
-    "fixtures",
-    "utils"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "ProjectTSApp",
-    "ProjectTestsuite2"
-  ]
+  "include": ["ProjectTestsuite3", "pages", "fixtures", "utils"],
+  "exclude": ["node_modules", "dist", "ProjectTSApp", "ProjectTestsuite2"]
 }

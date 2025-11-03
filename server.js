@@ -75,9 +75,7 @@ app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res
-      .status(400)
-      .json({ error: "Username and password are required" });
+    return res.status(400).json({ error: "Username and password are required" });
   }
 
   const storedPassword = userPasswords[username];
@@ -126,9 +124,7 @@ app.get("/api/error", (req, res) => {
 
 app.get("/api/search", (req, res) => {
   const { name } = req.query;
-  const result = users.filter((u) =>
-    u.name.toLowerCase().includes(name.toLowerCase())
-  );
+  const result = users.filter((u) => u.name.toLowerCase().includes(name.toLowerCase()));
   res.json({ users: result });
 });
 

@@ -32,9 +32,7 @@ export class AddToListPage {
   }
 
   async goto(): Promise<void> {
-    await this.page.goto(
-      "http://localhost:3000/ProjectTSApp/TS1_AddToList.html"
-    );
+    await this.page.goto("http://localhost:3000/ProjectTSApp/TS1_AddToList.html");
     await this.page.waitForLoadState("networkidle");
   }
 

@@ -1,15 +1,11 @@
 import { test, expect } from "../fixtures/customFixtures.js";
 
-
 test.describe.parallel("AddToList API Tests (POM + Fixture)", () => {
-  test("api-endpoint-1GETallUsers-VerifyCorrectJSONstructure", async ({
-    apiService,
-  }) => {
+  test("api-endpoint-1GETallUsers-VerifyCorrectJSONstructure", async ({ apiService }) => {
     const response = await apiService.getAllUsers();
     expect(response.status()).toBe(200);
 
-    const data: { users: Array<{ id: number; name: string }> } =
-      await response.json();
+    const data: { users: Array<{ id: number; name: string }> } = await response.json();
     expect(data).toHaveProperty("users");
     expect(Array.isArray(data.users)).toBe(true);
 
@@ -62,9 +58,7 @@ test.describe.parallel("AddToList API Tests (POM + Fixture)", () => {
     expect(data).toHaveProperty("error", "Name is required");
   });
 
-  test("api-endpoint-6PUTupdateExistingUser-verifyUpdatedData", async ({
-    apiService,
-  }) => {
+  test("api-endpoint-6PUTupdateExistingUser-verifyUpdatedData", async ({ apiService }) => {
     const userIdToUpdate = 1;
     const updatedName = "Updated User 1";
     const response = await apiService.updateUser(userIdToUpdate, updatedName);
@@ -75,9 +69,7 @@ test.describe.parallel("AddToList API Tests (POM + Fixture)", () => {
     expect(data).toHaveProperty("name", updatedName);
   });
 
-  test("api-endpoint-7PUTupdateNon-existingUser-expect404", async ({
-    apiService,
-  }) => {
+  test("api-endpoint-7PUTupdateNon-existingUser-expect404", async ({ apiService }) => {
     const response = await apiService.updateUser(999, "Nonexistent User");
     expect(response.status()).toBe(404);
 
@@ -97,9 +89,7 @@ test.describe.parallel("AddToList API Tests (POM + Fixture)", () => {
     expect(data).toHaveProperty("id", userIdToDelete);
   });
 
-  test("api-endpoint-9GETdelayedEndpoint-testNetworkLatency", async ({
-    apiService,
-  }) => {
+  test("api-endpoint-9GETdelayedEndpoint-testNetworkLatency", async ({ apiService }) => {
     const startTime = Date.now();
     const response = await apiService.getDelayedEndpoint();
     const duration = Date.now() - startTime;
@@ -113,9 +103,7 @@ test.describe.parallel("AddToList API Tests (POM + Fixture)", () => {
     expect(duration).toBeLessThanOrEqual(2500);
   });
 
-  test("api-endpoint-10GETerrorEndpoint-verify500responseHandling", async ({
-    apiService,
-  }) => {
+  test("api-endpoint-10GETerrorEndpoint-verify500responseHandling", async ({ apiService }) => {
     const response = await apiService.getErrorEndpoint();
     expect(response.status()).toBe(500);
 
