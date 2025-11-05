@@ -11,7 +11,7 @@ This ensures the app is available before tests begin and prevents stale processe
 
 ---
 
-## Configuration in `playwright.config.js`
+## Configuration in `playwright.config.ts`
 
 Below is the `webServer` block configured for this project:
 

@@ -1,4 +1,4 @@
-# TS1-APIendpoints.spec.js
+# TS1-APIendpoints.spec.ts
 
 This suite tests the **"API endpoints"** of the **'AddToList'** backend, verifying correct responses, data structure, error handling, and network behavior.  
 It uses Playwright’s `request` fixture for direct HTTP calls, covering both **CRUD operations** and edge cases.

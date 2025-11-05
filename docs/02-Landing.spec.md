@@ -1,4 +1,4 @@
-# TS1-Landing.spec.js
+# TS1-Landing.spec.ts
 
 This test suite validates the **content, structure, and resource linkage** of the application’s **landing (index) page**.  
 It ensures that all major sections, external files, and UI elements render as expected using **parallel Playwright tests** with screenshots and error attachments.

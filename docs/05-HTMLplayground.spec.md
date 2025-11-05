@@ -1,4 +1,4 @@
-# TS1-HTMLPlayground.spec.js
+# TS1-HTMLPlayground.spec.ts
 
 This suite tests the **"HTML Playground"** feature, a local HTML editor with live preview in an iframe.  
 It verifies input handling, live rendering, cross-browser/device behavior, and basic formatting support.  

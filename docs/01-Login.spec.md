@@ -1,4 +1,4 @@
-# TS1-Login.spec.js
+# TS1-Login.spec.ts
 
 This test suite verifies the **login page functionality and validation logic**.  
 It demonstrates **form interaction**, **environment variable usage**, **UI assertions**, **screenshot capture**, and **error handling with attachments**.

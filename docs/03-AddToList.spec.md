@@ -1,4 +1,4 @@
-# TS1-AddToList.spec.js
+# TS1-AddToList.spec.ts
 
 This test suite verifies the functionality of the **"Add to List"** feature, ensuring that user input is validated, items are appended correctly, and UI behavior follows expected logic.  
 It interacts with `TS1_AddToList.html` and tests both **positive and negative scenarios** using Playwright.

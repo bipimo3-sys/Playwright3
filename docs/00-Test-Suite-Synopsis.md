@@ -12,18 +12,18 @@ Each suite ensures **user experience, backend reliability, and frontend consiste
 
 | **Module** | **Spec File** | **Focus Area** |
 |-------------|----------------|----------------|
-| **Login Page** | `Login.spec.js` | Authentication flow and form validation |
-| **Landing Page** | `Landing.spec.js` | Structural and content validation |
-| **Add to List** | `AddToList.spec.js` | Dynamic list behavior and UI interaction |
-| **API Endpoints** | `APIendpoints.spec.js` | CRUD operations and error handling |
-| **HTML Playground** | `HTMLPlayground.spec.js` | Live HTML editing and iframe rendering |
-| **HTML Playground API Mock** | `HTMLPlaygroundAPImock.spec.js` | Mocked API data loading and iframe population |
+| **Login Page** | `Login.spec.ts` | Authentication flow and form validation |
+| **Landing Page** | `Landing.spec.ts` | Structural and content validation |
+| **Add to List** | `AddToList.spec.ts` | Dynamic list behavior and UI interaction |
+| **API Endpoints** | `APIendpoints.spec.ts` | CRUD operations and error handling |
+| **HTML Playground** | `HTMLPlayground.spec.ts` | Live HTML editing and iframe rendering |
+| **HTML Playground API Mock** | `HTMLPlaygroundAPImock.spec.ts` | Mocked API data loading and iframe population |
 
 ---
 
 ##  Functional Coverage Summary
 
-### 1. **Login Page (`Login.spec.js`)**
+### 1. **Login Page (`Login.spec.ts`)**
 
 Verifies login form elements, validation messages, authentication logic, and post-login redirects.
 
@@ -40,7 +40,7 @@ Verifies login form elements, validation messages, authentication logic, and pos
 
 ---
 
-### 2. **Landing Page (`Landing.spec.js`)**
+### 2. **Landing Page (`Landing.spec.ts`)**
 
 Ensures all visible and hidden sections render correctly and external resources are linked properly.
 
@@ -56,7 +56,7 @@ DOM structure checks, text assertions, CSS validation, list count verification, 
 
 ---
 
-### 3. **Add to List Feature (`AddToList.spec.js`)**
+### 3. **Add to List Feature (`AddToList.spec.ts`)**
 
 Tests the dynamic behavior of the list feature, ensuring user input validation and list updates.
 
@@ -73,7 +73,7 @@ Form interaction (`fill`, `click`), conditional assertions, sequential user acti
 
 ---
 
-### 4. **API Endpoints (`APIendpoints.spec.js`)**
+### 4. **API Endpoints (`APIendpoints.spec.ts`)**
 
 Validates backend CRUD operations, API structure, response codes, and error handling.
 
@@ -91,7 +91,7 @@ Validates backend CRUD operations, API structure, response codes, and error hand
 
 ---
 
-### 5. **HTML Playground (`HTMLPlayground.spec.js`)**
+### 5. **HTML Playground (`HTMLPlayground.spec.ts`)**
 
 Tests the in-browser HTML editor that renders user HTML input live in an iframe preview.
 
@@ -109,7 +109,7 @@ Tests the in-browser HTML editor that renders user HTML input live in an iframe 
 
 ---
 
-### 6. **HTML Playground with API Mock (`HTMLPlaygroundAPImock.spec.js`)**
+### 6. **HTML Playground with API Mock (`HTMLPlaygroundAPImock.spec.ts`)**
 
 Combines frontend interaction with mock API data to verify dynamic iframe content rendering.
 
@@ -164,29 +164,29 @@ This consolidated suite serves as a **full-stack validation system**, supporting
 └── playwright.yml
 
 /ProjectTestsuite2/         <- (test suite)
-├── Login.spec.js
-├── Landing.spec.js
-├── AddToList.spec.js
-├── APIendpoints.spec.js
-├── HTMLPlayground.spec.js
-└── HTMLPlaygroundAPImock.spec.js
+├── Login.spec.ts
+├── Landing.spec.ts
+├── AddToList.spec.ts
+├── APIendpoints.spec.ts
+├── HTMLPlayground.spec.ts
+└── HTMLPlaygroundAPImock.spec.ts
 
 /docs/
 └── 00-Test-Suite-Synopsis.md   <- (this file)
 
 /pages/
-├── LoginPage.js
-├── LandingPage.js
-├── AddToListPage.js
-├── APIUserService.js
-├── HTMLPlaygroundPage.js
-└── HTMLPlaygroundAPImockPage.js
+├── LoginPage.ts
+├── LandingPage.ts
+├── AddToListPage.ts
+├── APIUserService.ts
+├── HTMLPlaygroundPage.ts
+└── HTMLPlaygroundAPImockPage.ts
 
 /fixtures/
-└── customFixtures.js
+└── customFixtures.ts
 
 /utils/
-└── helpers.js
+└── helpers.ts
 
 /ProjectTSApp/          <- (application)
 ├── TS1_Login.html
