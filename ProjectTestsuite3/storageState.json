@@ -2,10 +2,10 @@
   "cookies": [
     {
       "name": "connect.sid",
-      "value": "s%3AfM19eNsWHGXectItCKinbhdY2bZY8-0P.yjM4ujwbbpj8fjAX5MqGCvzxHPJ1rzQRMfSFfXQDXMg",
+      "value": "s%3AlE5_MtsxNvGJJwMUg7w_0kFQFrECsaMv.yaVa9qjvnJoCZgJLLuEDorikAVoGbjvp4ov5wHH9vEs",
       "domain": "localhost",
       "path": "/",
-      "expires": 1762175089.664318,
+      "expires": 1762230295.24429,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Lax"
