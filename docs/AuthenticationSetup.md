@@ -16,10 +16,10 @@ Subsequent tests reuse this state to start already logged in.
 
 ### 1. Create an Auth Setup File
 
-A dedicated setup file (e.g., `auth.setup.js`) logs in once and saves the authentication state.
+A dedicated setup file (e.g., `auth.setup.ts`) logs in once and saves the authentication state.
 
 ```js
-// auth.setup.js
+// auth.setup.ts
 import { test as setup, expect } from '@playwright/test';
 
 setup('authenticate and save storage state', async ({ page }) => {
